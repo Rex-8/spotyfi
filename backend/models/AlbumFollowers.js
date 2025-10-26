@@ -1,8 +1,11 @@
 import mongoose from "mongoose";
 
-const artistFollowersSchema = new mongoose.Schema({
+const albumFollowersSchema = new mongoose.Schema({
   user_id: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
-  artist_id: { type: mongoose.Schema.Types.ObjectId, ref: "Artist", required: true },
-}, { timestamps: true });
+  album_id: { type: mongoose.Schema.Types.ObjectId, ref: "Album", required: true },
+  followed_at: { type: Date, default: Date.now },
+});
 
-export default mongoose.model("ArtistFollowers", artistFollowersSchema);
+const AlbumFollowers = mongoose.models.AlbumFollowers || mongoose.model("AlbumFollowers", albumFollowersSchema);
+
+export default AlbumFollowers;

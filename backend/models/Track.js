@@ -10,4 +10,6 @@ const trackSchema = new mongoose.Schema({
   release_date: Date,
 }, { timestamps: true });
 
-export default mongoose.model("Track", trackSchema);
+const Track = mongoose.models.Track || mongoose.model("Track", trackSchema);
+
+export default Track;

@@ -5,4 +5,6 @@ const userFollowersSchema = new mongoose.Schema({
   followed_id: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
 }, { timestamps: true });
 
-export default mongoose.model("UserFollowers", userFollowersSchema);
+const UserFollowers = mongoose.models.UserFollowers || mongoose.model("UserFollowers", userFollowersSchema);
+
+export default UserFollowers;

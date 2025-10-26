@@ -5,4 +5,6 @@ const artistFollowersSchema = new mongoose.Schema({
   artist_id: { type: mongoose.Schema.Types.ObjectId, ref: "Artist", required: true },
 }, { timestamps: true });
 
-export default mongoose.model("ArtistFollowers", artistFollowersSchema);
+const ArtistFollowers = mongoose.models.ArtistFollowers || mongoose.model("ArtistFollowers", artistFollowersSchema);
+
+export default ArtistFollowers;

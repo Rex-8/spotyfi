@@ -5,4 +5,6 @@ const playlistFollowersSchema = new mongoose.Schema({
   playlist_id: { type: mongoose.Schema.Types.ObjectId, ref: "Playlist", required: true },
 }, { timestamps: true });
 
-export default mongoose.model("PlaylistFollowers", playlistFollowersSchema);
+const PlaylistFollowers = mongoose.models.PlaylistFollowers || mongoose.model("PlaylistFollowers", playlistFollowersSchema);
+
+export default PlaylistFollowers;

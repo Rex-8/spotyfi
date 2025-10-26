@@ -8,4 +8,6 @@ const artistSchema = new mongoose.Schema({
   artist_picture: String,
 }, { timestamps: true });
 
-export default mongoose.model("Artist", artistSchema);
+const Artist = mongoose.models.Artist || mongoose.model("Artist", artistSchema);
+
+export default Artist;

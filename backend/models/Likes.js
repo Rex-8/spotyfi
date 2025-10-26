@@ -6,4 +6,6 @@ const likesSchema = new mongoose.Schema({
   liked_at: { type: Date, default: Date.now },
 });
 
-export default mongoose.model("Likes", likesSchema);
+const Likes = mongoose.models.Likes || mongoose.model("Likes", likesSchema);
+
+export default Likes;

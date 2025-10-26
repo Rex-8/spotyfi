@@ -8,4 +8,6 @@ const playlistTrackSchema = new mongoose.Schema({
   added_at: { type: Date, default: Date.now },
 });
 
-export default mongoose.model("PlaylistTrack", playlistTrackSchema);
+const PlaylistTrack = mongoose.models.PlaylistTrack || mongoose.model("PlaylistTrack", playlistTrackSchema);
+
+export default PlaylistTrack;
