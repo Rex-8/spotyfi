@@ -1,5 +1,6 @@
 import express from "express";
 import { getAllAlbums, getAlbum, createAlbum, followAlbum } from "../controllers/albumController.js";
+import { protect } from "../middleware/auth.js";
 
 const router = express.Router();
 

@@ -1,5 +1,6 @@
 import express from "express";
 import { getAllTracks, getTrack, createTrack, likeTrack } from "../controllers/trackController.js";
+import { protect } from "../middleware/auth.js";
 
 const router = express.Router();
 

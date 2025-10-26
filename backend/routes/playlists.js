@@ -1,5 +1,6 @@
 import express from "express";
 import { getAllPlaylists, getPlaylist, createPlaylist, followPlaylist, addTrack } from "../controllers/playlistController.js";
+import { protect } from "../middleware/auth.js";
 
 const router = express.Router();
 

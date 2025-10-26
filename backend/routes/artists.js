@@ -1,5 +1,6 @@
 import express from "express";
 import { getArtist, getAllArtists, followArtist } from "../controllers/artistController.js";
+import { protect } from "../middleware/auth.js";
 
 const router = express.Router();
 
