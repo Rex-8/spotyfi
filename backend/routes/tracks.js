@@ -5,7 +5,7 @@ import { protect } from "../middleware/auth.js";
 const router = express.Router();
 
 router.get("/", protect, getAllTracks);
-router.get("/:id", protect, getTrack);
+router.get("/:id", protect, validateObjectId, getTrack);
 router.post("/", protect, createTrack);
 router.post("/like/:id", protect, likeTrack);
 

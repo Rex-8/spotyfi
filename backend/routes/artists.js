@@ -5,7 +5,7 @@ import { protect } from "../middleware/auth.js";
 const router = express.Router();
 
 router.get("/", protect, getAllArtists);
-router.get("/:id", protect, getArtist);
+router.get("/:id", protect, validateObjectId, getArtist);
 router.post("/follow/:id", protect, followArtist);
 
 export default router;

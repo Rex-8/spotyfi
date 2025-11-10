@@ -5,7 +5,7 @@ import { protect } from "../middleware/auth.js";
 const router = express.Router();
 
 router.get("/", protect, getAllPlaylists);
-router.get("/:id", protect, getPlaylist);
+router.get("/:id", protect, validateObjectId, getPlaylist);
 router.post("/", protect, createPlaylist);
 router.post("/follow/:id", protect, followPlaylist);
 router.post("/track/:id", protect, addTrack);
