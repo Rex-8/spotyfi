@@ -7,7 +7,12 @@ export const register = async (req, res) => {
     const { display_name, username, email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({ display_name, username, email, password_hash: hashedPassword });
-    res.status(201).json(user);
+    
+    // Remove password_hash before sending
+    const userResponse = user.toObject();
+    delete userResponse.password_hash;
+    
+    res.status(201).json(userResponse);
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
@@ -21,7 +26,12 @@ export const login = async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password_hash);
     if (!isMatch) return res.status(401).json({ error: "Invalid credentials" });
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
-    res.json({ token, user });
+    
+    // Remove password_hash before sending
+    const userResponse = user.toObject();
+    delete userResponse.password_hash;
+    
+    res.json({ token, user: userResponse });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
