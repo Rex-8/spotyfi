@@ -1,0 +1,206 @@
+.album-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.album-header {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 50px;
+  align-items: flex-end;
+}
+
+.album-cover-large {
+  width: 250px;
+  height: 250px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  object-fit: cover;
+}
+
+.album-info {
+  flex: 1;
+}
+
+.album-type {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #b3b3b3;
+  margin-bottom: 10px;
+}
+
+.album-title-large {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.album-meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #b3b3b3;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.album-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.play-all-button {
+  padding: 12px 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.play-all-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.follow-album-button {
+  padding: 12px 30px;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.follow-album-button:hover {
+  background: white;
+  color: #282828;
+}
+
+.follow-album-button.following {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.album-tracks {
+  margin-top: 40px;
+}
+
+.album-tracks h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.no-tracks {
+  color: #888;
+  font-style: italic;
+  padding: 40px;
+  text-align: center;
+}
+
+.tracks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.track-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 80px;
+  gap: 15px;
+  padding: 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+  align-items: center;
+}
+
+.track-row:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.track-number {
+  color: #b3b3b3;
+  font-size: 14px;
+  text-align: center;
+}
+
+.track-info {
+  min-width: 0;
+}
+
+.track-info .track-title {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.track-info .track-artist {
+  color: #b3b3b3;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.track-duration {
+  color: #b3b3b3;
+  font-size: 14px;
+  text-align: right;
+}
+
+.error-container {
+  text-align: center;
+  padding: 60px 20px;
+  color: #fc8181;
+}
+
+.error-container button {
+  margin-top: 20px;
+  padding: 10px 30px;
+  background: #e53e3e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .album-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .album-cover-large {
+    width: 200px;
+    height: 200px;
+  }
+
+  .album-title-large {
+    font-size: 32px;
+  }
+
+  .album-actions {
+    justify-content: center;
+  }
+
+  .track-row {
+    grid-template-columns: 30px 1fr 60px;
+    gap: 10px;
+  }
+}

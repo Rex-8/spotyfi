@@ -1,0 +1,23 @@
+.app-layout {
+  min-height: 100vh;
+  background-color: #121212;
+}
+
+.main-container {
+  display: flex;
+}
+
+.content {
+  flex: 1;
+  padding: 30px;
+  background-color: #181818;
+  min-height: calc(100vh - 70px);
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .content {
+    padding: 20px;
+  }
+}

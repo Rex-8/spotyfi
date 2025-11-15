@@ -1,36 +1,67 @@
 import { useAuth } from '../hooks/useAuth';
+import Layout from '../components/layout/Layout';
+import './Home.css';
 
 const Home = () => {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
 
   return (
-    <div style={{ padding: '40px', textAlign: 'center' }}>
-      <h1>Welcome to Music App!</h1>
-      <p>Hello, {user?.display_name || 'User'}!</p>
-      <p>Email: {user?.email}</p>
-      <p>Username: @{user?.username}</p>
-      <p>Artist Account: {user?.is_artist ? 'Yes' : 'No'}</p>
-      
-      <button 
-        onClick={logout}
-        style={{
-          padding: '10px 20px',
-          marginTop: '20px',
-          backgroundColor: '#667eea',
-          color: 'white',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer',
-          fontSize: '16px'
-        }}
-      >
-        Logout
-      </button>
-      
-      <p style={{ marginTop: '40px', color: '#666' }}>
-        More features coming soon...
-      </p>
-    </div>
+    <Layout>
+      <div className="home-page">
+        <div className="welcome-section">
+          <h1>Welcome back, {user?.display_name}! 👋</h1>
+          <p>Ready to discover some amazing music?</p>
+        </div>
+
+        <div className="quick-stats">
+          <div className="stat-card">
+            <div className="stat-icon">🎵</div>
+            <div className="stat-info">
+              <h3>0</h3>
+              <p>Liked Songs</p>
+            </div>
+          </div>
+          
+          <div className="stat-card">
+            <div className="stat-icon">📝</div>
+            <div className="stat-info">
+              <h3>0</h3>
+              <p>Playlists</p>
+            </div>
+          </div>
+          
+          <div className="stat-card">
+            <div className="stat-icon">👤</div>
+            <div className="stat-info">
+              <h3>0</h3>
+              <p>Following</p>
+            </div>
+          </div>
+          
+          {user?.is_artist && (
+            <div className="stat-card highlight">
+              <div className="stat-icon">🎤</div>
+              <div className="stat-info">
+                <h3>Artist</h3>
+                <p>Account Active</p>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="home-sections">
+          <section className="home-section">
+            <h2>Recently Played</h2>
+            <p className="empty-message">Start listening to see your recent tracks here</p>
+          </section>
+
+          <section className="home-section">
+            <h2>Recommended for You</h2>
+            <p className="empty-message">Explore music to get personalized recommendations</p>
+          </section>
+        </div>
+      </div>
+    </Layout>
   );
 };
 
